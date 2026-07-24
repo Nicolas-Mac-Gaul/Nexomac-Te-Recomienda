@@ -1,0 +1,131 @@
+<!--MEJORAR: calesita para c/banner, que al buscarlos por su nombre no se corte la imagen, que el efecto de aparicion de las target no tarde tanto.-->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexomac Te Recomienda</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <a href="#" class="logo" aria-label="Volver arriba">
+            <i data-lucide="gamepad-2"></i>
+        </a>
+        <div class="header-title">
+            <h1>Nexomac Te Recomienda</h1>
+            <p>
+                Recomendaciones personales de videojuegos
+            </p>
+        </div>
+        <nav>
+            <div class="dropdown">
+                <button class="dropbtn">
+                    Juegos ▼
+                </button>
+                <div class="dropdown-content">
+                    <a href="#aventura">Acción / Aventura</a>
+                    <a href="#cooperativo">Cooperativo</a>
+                    <a href="#lucha">Lucha</a>
+                    <a href="#shooters">Shooters</a>
+                    <a href="#carreras">Carreras</a>
+                </div>
+            </div>
+            <button id="menu-toggle">
+                ☰
+            </button>
+        </nav>
+    </header>
+    <div class="mobile-menu">
+        <a href="#aventura">Acción / Aventura</a>
+        <a href="#cooperativo">Cooperativo</a>
+        <a href="#lucha">Lucha</a>
+        <a href="#shooters">Shooters</a>
+        <a href="#terror">Terror</a>
+        <a href="#carreras">Carreras</a>
+    </div>
+    <section class="banner">
+        <button class="banner-arrow left" id="prev-banner">
+            ❮
+        </button>
+        <div class="banner-overlay">
+            <h2 id="banner-title">
+                Shadow of the Colossus
+            </h2>
+            <p id="banner-description">
+                Una aventura inolvidable.
+            </p>
+            <a id="banner-button" href="#shadow-colossus">
+                Ver recomendación
+            </a>
+        </div>
+        <button class="banner-arrow right" id="next-banner">
+            ❯
+        </button>
+    </section>
+    <section class="search-section">
+        <input type="text" id="searchInput" placeholder="🔍 Buscar juego...">
+    </section>
+    <main>
+        <!-- =========================
+             ACCIÓN / AVENTURA
+        ========================= -->
+        <section id="aventura" class="category-section">
+            <h2> <i data-lucide="compass"> </i> Acción / Aventura </h2>
+            <div class="games-container"></div>
+        </section>
+        <!-- =========================
+             COOPERATIVO
+        ========================= -->
+        <section id="cooperativo" class="category-section">
+            <h2> <i data-lucide="handshake"></i> Cooperativo </h2>
+            <div class="games-container"></div>
+        </section>
+        <!-- =========================
+             LUCHA
+        ========================= -->
+        <section id="lucha" class="category-section">
+            <h2> <i data-lucide="swords"></i> Lucha </h2>
+            <div class="games-container"></div>
+        </section>
+        <!-- =========================
+             SHOOTERS
+        ========================= -->
+        <section id="shooters" class="category-section">
+            <h2> <i data-lucide="crosshair"></i> Shooters </h2>
+            <div class="games-container"></div>
+        </section>
+        <!-- =========================
+             CARRERAS
+        ========================= -->
+        <section id="carreras" class="category-section">
+            <h2> <i data-lucide="flag"></i> Carreras </h2>
+            <div class="games-container"></div>
+        </section>
+    </main>
+    <footer>
+        <h3>Nexomac Te Recomienda</h3>
+        <p>
+            Este proyecto reúne algunos de los videojuegos
+            que más disfruté a lo largo de los años,
+            organizados por género y acompañados por mi
+            opinión personal.
+        </p>
+        <p>
+            Desde aventuras épicas como Shadow of the Colossus
+            hasta experiencias multijugador como Battlefront II,
+            cada recomendación forma parte de una colección
+            de juegos que considero especiales.
+        </p>
+        <p class="copyright">
+            © 2026 Nicolás Mac Gaul
+        </p>
+    </footer>
+    <script src="games-data.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
