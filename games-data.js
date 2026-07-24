@@ -342,7 +342,7 @@ const juegos = [
     {
         cat: "carreras",
         name: "FlatOut 2",
-        img: "img/flatout2.png",
+        img: "img/flatOut2.png",
         alt: "FlatOut 2",
         title: "FlatOut 2",
         genre: "Carreras Arcade",
