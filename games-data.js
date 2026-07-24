@@ -248,7 +248,7 @@ const juegos = [
         genre: "Lucha",
         platform: "PS4, PS5, Xbox, Switch, PC",
         rating: "Mortal",
-        review: "Mi Mortal Kombat favorito. Muchísimo contenido para un jugador, gran plantel, una jugabilidad muy sólida y buen Online. Me gusta también que todos tengan su arma"
+        review: "Mi Mortal Kombat favorito. Muchísimo contenido para un jugador, gran plantel, una jugabilidad muy sólida y buen Online. Me gusta también que todos tengan sus propias armas, me recuerda un poco al Armageddon."
     },
     {
         cat: "lucha",
@@ -326,7 +326,7 @@ const juegos = [
         genre: "Shooter Táctico",
         platform: "PS4, Xbox, Switch, PC",
         rating: "Bueno",
-        review: "Muy accesible y entretenido. Ideal para jugar con amigos sin necesidad de aprender mecánicas demasiado complejas. No es conocido pero está bueno, pero con amigos obvio."
+        review: "Muy accesible y entretenido. Ideal para jugar con amigos sin necesidad de aprender mecánicas demasiado complejas. No es conocido pero está bueno, en especial con amigos."
     },
     {
         cat: "shooters",
