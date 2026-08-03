@@ -85,8 +85,6 @@ header{
 }
 .logo{
     font-size:2rem;
-    text-decoration: none;
-    color: inherit;
     filter:
         drop-shadow(
             0 0 10px rgba(157,125,255,.45)
@@ -185,6 +183,9 @@ header{
 }
 .mobile-menu{
     display:none;
+    position:sticky;
+    top:var(--header-height,64px);
+    z-index:999;
     background:
         rgba(17,24,39,.98);
     border-bottom:
@@ -551,7 +552,13 @@ footer{
         1px solid rgba(255,255,255,.08);
     text-align:center;
 }
-
+footer h3{
+    font-size:1.6rem;
+    margin-bottom:1rem;
+    color:white;
+    text-shadow:
+        0 0 10px rgba(139,92,246,.35);
+}
 footer p{
     max-width:800px;
     margin:
@@ -582,6 +589,25 @@ footer p{
         transform:
             translateY(0);
     }
+}
+@keyframes iluminarTarjeta{
+    0%,100%{
+        box-shadow:
+            var(--shadow-md);
+        border-color:
+            rgba(255,255,255,.06);
+    }
+    25%,75%{
+        box-shadow:
+            0 0 35px rgba(139,92,246,.65),
+            var(--shadow-md);
+        border-color:
+            rgba(139,92,246,.85);
+    }
+}
+.game-card.resaltada{
+    animation:
+        iluminarTarjeta 1.8s ease;
 }
 @keyframes pulseGlow{
     0%{

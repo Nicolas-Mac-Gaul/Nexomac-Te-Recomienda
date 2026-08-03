@@ -82,7 +82,7 @@ renderizarJuegos();
 const favoritos = [
     {
         titulo: "Shadow of the Colossus",
-        descripcion: "Una aventura mística e inolvidable con algunos de los enfrentamientos más épicos de la historia.",
+        descripcion: "Una aventura inolvidable con algunos de los enfrentamientos más épicos de la historia.",
         imagen: "img/SOTC-banner.jpg",
         link: "#shadow-colossus"
     },
@@ -124,7 +124,7 @@ const favoritos = [
     },
     {
         titulo: "Star Wars Battlefront II",
-        descripcion: "Batallas galácticas masivas con tus héroes y villanos favoritos.",
+        descripcion: "Mi shooter favorito de Star Wars.",
         imagen: "img/battlefront2-banner.jpg",
         link: "#battlefront2"
     }
@@ -230,6 +230,33 @@ actualizarBanner();
 iniciarBannerAutomatico();
 
 // =====================================
+// RESALTAR TARJETA DESDE EL BANNER
+// =====================================
+// Al tocar "Ver recomendación", además del scroll normal del link
+// (#id), se ilumina un instante la tarjeta de destino para que no
+// haya que buscarla con la mirada entre las demás de la fila.
+
+bannerButton.addEventListener("click", () => {
+
+    const idDestino = bannerButton.getAttribute("href").slice(1);
+    const tarjeta = document.getElementById(idDestino);
+
+    if (!tarjeta) {
+        return;
+    }
+
+    tarjeta.classList.remove("resaltada");
+    void tarjeta.offsetWidth;
+    tarjeta.classList.add("resaltada");
+
+    tarjeta.addEventListener("animationend", function alTerminar() {
+        tarjeta.classList.remove("resaltada");
+        tarjeta.removeEventListener("animationend", alTerminar);
+    });
+
+});
+
+// =====================================
 // BUSCADOR MEJORADO
 // =====================================
 // Antes esto forzaba display:"block" por inline style, lo que pisaba
@@ -306,8 +333,9 @@ document.querySelectorAll(".dropdown-content a, .mobile-menu a").forEach(link =>
 // =====================================
 // APARICIÓN DE TARJETAS
 // =====================================
-
-const cards = document.querySelectorAll(".game-card");
+// El delay se reinicia por categoría (antes era global sobre las 29
+// tarjetas, así que las categorías más abajo en la página tardaban
+// mucho más en empezar a aparecer). También se acortó la duración.
 
 const observer = new IntersectionObserver(entries => {
 
@@ -321,13 +349,19 @@ const observer = new IntersectionObserver(entries => {
 
 }, { threshold: 0.15 });
 
-cards.forEach((card, index) => {
+document.querySelectorAll(".games-container").forEach(contenedor => {
 
-    card.style.opacity = "0";
-    card.style.transform = "translateY(40px)";
-    card.style.transition = `all .6s ease ${index * 0.03}s`;
+    const cardsDeLaCategoria = contenedor.querySelectorAll(".game-card");
 
-    observer.observe(card);
+    cardsDeLaCategoria.forEach((card, index) => {
+
+        card.style.opacity = "0";
+        card.style.transform = "translateY(40px)";
+        card.style.transition = `all .35s ease ${index * 0.04}s`;
+
+        observer.observe(card);
+
+    });
 
 });
 
@@ -367,12 +401,15 @@ function reiniciarAnimacionBanner() {
 // =====================================
 // Solo se mantiene una opinión abierta a la vez: al abrir una,
 // se cierra automáticamente la anterior (si había otra abierta).
-// Al abrir, se espera a que termine la animación (transitionend de
-// max-height) y recién ahí se mide si el contenido se pasa del borde
-// inferior de la pantalla. Si es así, se hace scroll justo lo
-// necesario para que quede completo a la vista.
+// Al abrir, se guarda la posición de scroll de ese momento y se
+// espera a que termine la animación (transitionend de max-height)
+// para medir si el contenido se pasa del borde inferior de la
+// pantalla y, si es así, bajar justo lo necesario. Al cerrarla
+// (segundo click sobre el mismo botón), se vuelve a esa posición
+// guardada.
 
 let reviewAbierta = null;
+let scrollAntesDeAbrir = 0;
 
 document.querySelectorAll(".toggle-review").forEach(button => {
 
@@ -382,6 +419,10 @@ document.querySelectorAll(".toggle-review").forEach(button => {
 
         const seEstaAbriendo = !contenido.classList.contains("active");
 
+        if (seEstaAbriendo && reviewAbierta === null) {
+            scrollAntesDeAbrir = window.scrollY;
+        }
+
         if (reviewAbierta && reviewAbierta !== contenido) {
             reviewAbierta.classList.remove("active");
         }
@@ -390,6 +431,10 @@ document.querySelectorAll(".toggle-review").forEach(button => {
         reviewAbierta = seEstaAbriendo ? contenido : null;
 
         if (!seEstaAbriendo) {
+            window.scrollTo({
+                top: scrollAntesDeAbrir,
+                behavior: "smooth"
+            });
             return;
         }
 
@@ -416,5 +461,3 @@ document.querySelectorAll(".toggle-review").forEach(button => {
     });
 
 });
-
-    lucide.createIcons();
