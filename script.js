@@ -101,7 +101,7 @@ const favoritos = [
     {
         titulo: "Marvel's Spider-Man",
         descripcion: "Moverse por Nueva York nunca fue tan divertido.",
-        imagen: "img/Spider-Manbanner.jpg",
+        imagen: "img/spider-man-banner.jpg",
         link: "#spiderman"
     },
     {
