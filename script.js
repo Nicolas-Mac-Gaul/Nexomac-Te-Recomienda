@@ -95,7 +95,7 @@ const favoritos = [
     {
         titulo: "Sifu",
         descripcion: "Combate espectacular y un sistema de progresión único.",
-        imagen: "img/Sifu-banner.png",
+        imagen: "img/sifu-banner.png",
         link: "#sifu"
     },
     {
