@@ -83,13 +83,13 @@ const favoritos = [
     {
         titulo: "Shadow of the Colossus",
         descripcion: "Una aventura inolvidable con algunos de los enfrentamientos más épicos de la historia.",
-        imagen: "img/SOTC-banner.jpg",
+        imagen: "img/soct-banner.jpg",
         link: "#shadow-colossus"
     },
     {
         titulo: "Star Wars Jedi: Fallen Order",
         descripcion: "Una de las mejores aventuras modernas de Star Wars.",
-        imagen: "img/SW-FO-banner.png",
+        imagen: "img/sw-fo-banner.png",
         link: "#fallen-order"
     },
     {
@@ -107,19 +107,19 @@ const favoritos = [
     {
         titulo: "Resident Evil 4",
         descripcion: "Uno de los mejores videojuegos jamás creados.",
-        imagen: "img/RE4-banner.png",
+        imagen: "img/re4-banner.png",
         link: "#re4"
     },
     {
         titulo: "Mortal Kombat 11",
         descripcion: "Mi juego favorito de lucha por contenido y jugabilidad.",
-        imagen: "img/MK11-banner.png",
+        imagen: "img/mk11-banner.png",
         link: "#mk11"
     },
     {
         titulo: "GTA V",
         descripcion: "Un mundo abierto enorme lleno de posibilidades.",
-        imagen: "img/GTAV-banner.jpeg",
+        imagen: "img/gtav-banner.jpeg",
         link: "#gta5"
     },
     {
